@@ -1,0 +1,32 @@
+<TextInputLineNumber@BoxLayout>:
+    line_numbers: line_numbers
+    text_content: text_content
+
+    cursor: self.text_content.cursor
+    scroll_y: self.text_content.scroll_y
+    text: self.text_content.text
+
+    amount_lines: self.text_content.amount_lines
+    lines_flags: self.text_content.lines_flags
+
+    LineNumbers:
+        id: line_numbers
+        line_spacing: 3
+        cursor: 0, root.text_content.cursor[1]
+        scroll_y: root.text_content.scroll_y
+        lines_flags: root.text_content.lines_flags
+
+    CustomTextInput:
+        id: text_content
+        line_spacing: 3
+        scroll_y: root.line_numbers.scroll_y
+        text: root.text
+
+<CustomTextInput@TextInput>:
+
+<LineNumbers@TextInput>:
+    background_color: '090909'
+    foreground_color: 'ffffff'
+    readonly: True
+    size_hint_max_x: 50
+    text: '1'
