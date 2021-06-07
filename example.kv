@@ -1,0 +1,45 @@
+#:include textinputlinenumber.kv
+
+<ExampleRoot@BoxLayout>:
+
+    lines_show: lines_show
+    cursor_col_show: cursor_col_show
+    cursor_row_show: cursor_row_show
+    lni:lni
+    ti: ti
+
+    orientation: 'vertical'
+
+    TextInputLineNumber:
+        id: lni
+
+    BoxLayout:
+        size_hint_y: .05
+        orientation: 'horizontal'
+        Label:
+            text: 'Lines:'
+        Label:
+            id: lines_show
+            text: str(lni.amount_lines)
+        Label:
+            text: 'Cursor Column:'
+        Label:
+            id: cursor_col_show
+            text: str(lni.cursor[0])
+        Label:
+            text: 'Cursor Row:'
+        Label:
+            id: cursor_row_show
+            text: str(lni.cursor[1])
+        Label:
+            text: 'Scroll Y:'
+        Label:
+            id: cursor_row_show
+            text: str(round(lni.scroll_y, 2))
+        Button:
+            text: "Append Lorem Ipsum"
+            on_press: root.append_lorem_ipsum()
+            size_hint_x: 3
+
+    TextInput:
+        id: ti
