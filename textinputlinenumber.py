@@ -54,3 +54,10 @@ class TextInputLineNumber(BoxLayout):
     lines_flags = ListProperty([])
     text = StringProperty('')
     scroll_y = NumericProperty(0)
+
+    def update_graphics(self):
+        self.line_numbers._update_graphics()
+        self.text_content._update_graphics()
+
+    def do_cursor_movement(self, action, control=False, alt=False):
+        self.text_content.do_cursor_movement(action, control, alt)

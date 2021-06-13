@@ -9,16 +9,18 @@
     amount_lines: self.text_content.amount_lines
     lines_flags: self.text_content.lines_flags
 
+    line_spacing: 3
+
     LineNumbers:
         id: line_numbers
-        line_spacing: 3
+        line_spacing: root.line_spacing
         cursor: 0, root.text_content.cursor[1]
         scroll_y: root.text_content.scroll_y
         lines_flags: root.text_content.lines_flags
 
     CustomTextInput:
         id: text_content
-        line_spacing: 3
+        line_spacing: root.line_spacing
         scroll_y: root.line_numbers.scroll_y
         text: root.text
 
