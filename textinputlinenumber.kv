@@ -3,6 +3,7 @@
     text_content: text_content
 
     cursor: self.text_content.cursor
+    cursor_pos: self.text_content.cursor_pos
     scroll_y: self.text_content.scroll_y
     text: self.text_content.text
 
@@ -10,6 +11,10 @@
     lines_flags: self.text_content.lines_flags
 
     line_spacing: 3
+
+    on_focus: text_content.focus=True
+
+    selection: text_content.selection_text
 
     LineNumbers:
         id: line_numbers
@@ -23,12 +28,14 @@
         line_spacing: root.line_spacing
         scroll_y: root.line_numbers.scroll_y
         text: root.text
+        cursor: root.cursor
 
-<CustomTextInput@TextInput>:
+<CustomTextInput@CodeInput>:
 
 <LineNumbers@TextInput>:
     background_color: '090909'
-    foreground_color: 'ffffff'
+    disabled_foreground_color: 'ffffff'
     readonly: True
     size_hint_max_x: 50
     text: '1'
+    disabled: True
